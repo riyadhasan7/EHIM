@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
   <title>Registration</title>
   <?php include("config.php"); ?>
 </head>
@@ -73,7 +73,7 @@
           <input class="btn" type="submit" name="submit" id="submit" value="Submit">
         </div>
         <div class="links">
-          Have an account? <a href="index.html">Sign In</a>
+          Have an account? <a href="index.php">Sign In</a>
         </div>
       </form>
     </div>

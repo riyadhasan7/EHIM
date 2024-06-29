@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <?php session_start(); ?>
     <title>Login</title>
 </head>
@@ -27,33 +28,26 @@
                         $_SESSION['id'] = $row['id'];
                         header("Location: setup.php");
                     } else {
-                        echo "<div class='message'><p>wrong username or password</p></div><br>";
+                        echo "<div class='message'><p>Wrong username or password</p></div><br>";
                         echo "<a href='index.php'><button class='btn'>Go back</button></a>";       
                     }
                 }
             ?>
-            <header class="header">login</header>
+            <header class="header">Login</header>
             <form action="" method="POST">
                 <div class="field input">
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" required>
                 </div>
                 <div class="field input">
-                    <label for="password"><div class="mb-3">
-                        <label for="" class="form-label">Password</label>
-                        <input
-                            type="password"
-                            class="form-control"
-                            name="password"
-                            id="password"
-                        />
-                    </div></label>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
                 </div>
-                <div class="field">
-                    <input class="btn" type="submit" name="submit" id="submit" value="login">
+                <div class="btn">
+                    <input class="btn" type="submit" name="submit" id="submit" value="Login">
                 </div>
                 <div class="links">
-                    don't have account? <a href="registration.php">Sign Up</a>
+                    Don't have an account? <a href="registration.php">Sign Up</a>
                 </div>
             </form>
         </div>
