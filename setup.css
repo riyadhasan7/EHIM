@@ -1,179 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    background: #D8AA96;
-    color: #171A2B;
+    background: #e0f7fa;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-size: 14px;
-    font-weight: 400;
     height: 100vh;
-    width: 100vw;
+    color: #333;
+}
+
+.header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #01579b;
+}
+
+/* Image styles */
+.img.left-sided {
+    float: left; /* Float the container to the left */
+    margin-right: 15px;
+    align-items: end;
+     /* Add some space to the right of the image */
+}
+
+.img.left-sided img {
+    /*width: 1000px;  Make the image take up the full width of its container */
+    max-width: 780px; /* Set a maximum width for the image */
+    height: 1000px !important; /* Maintain the aspect ratio of the image */
+    border: 2px solid #000; /* Add a border to the image */
+    border-radius: 5px; /* Round the corners of the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect to the image */
 }
 
 .container {
+    
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-.signup-container {
-    display: grid;
-    grid-template-areas: "left right";
-    max-width: 900px;
-    width: 100%;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.left-container {
-    background: #171A2B;
-    padding: 40px 20px;
-    text-align: center;
-    width: 300px;
-  
-    h1 {
-        color: #000;
-        display: inline-block;
-        font-size: 24px;
-        margin-bottom: 20px;
-      
-        i {
-            background: #171A2B;
-            border-radius: 50%;
-            color: #171A2B;
-            font-size: 24px;
-            margin-right: 10px;
-            padding: 10px;
-            transform: rotate(-45deg);
-        }
-    }
-  
-    .image {
-        position: relative;
-    }
-  
-    .image:before {
-        background: #D8AA96;
-        content: "";
-        height: 100%;
-        left: 0;
-        opacity: 0.4; /* Using floating point */
-        position: absolute;
-        width: 100%;
-        z-index: 1;
-    }
-  
-    img {
-        filter: sepia(100%);
-        width: 100%;
-    }
-}
-
-.right-container {
-    background: lighten(#D8AA96, 5%);
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-  
-    h1 {
-        color: #000;
-        font-size: 28px;
-        font-weight: 600;
-        margin-bottom: 20px;
-    }
-  
-    .form-section {
-        display: flex;
-        flex-direction: column;
-    }
-  
-    .set {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-  
-    label {
-        display: block;
-        margin-bottom: 5px;
-        color: $font-color;
-    }
-  
-    input {
-        border: 1px solid #171A2B;
-        border-radius: 4px;
-        height: 38px;
-        line-height: 38px;
-        padding-left: 10px;
-        width: calc(100% - 10px);
-    }
-  
-    .checkbox-container {
-        display: flex;
-        flex-direction: column;
-    }
-  
-    .checkbox-container input[type="checkbox"] {
-        margin-right: 10px;
-    }
-  
-    .checkbox-container label {
-        margin-right: 20px;
-        display: flex;
-        align-items: center;
-    }
-  
-    .checkbox-container label:last-of-type {
-        margin-right: 0;
-    }
-  
-    footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
-    }
-  
-    button {
-        border: 1px solid rgba(0,0,0,0.2); /* Using floating point */
-        height: 38px;
-        line-height: 38px;
-        width: 100px;
-        border-radius: 19px;
-        cursor: pointer;
-        transition: background-color 0.3s, color 0.3s;
-    }
-  
-    #back {
-        background: #fff;
-      
-        &:hover {
-          background: #29388f;
-          color: white;
-        }
-    }
-  
-    #submit {
-        background: #D8AA96;
-        border: 1px solid transparent;
-        color: #fff;
-      
-        &:hover {
-          background: #171A2B;
-        }
-    }
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
 }
+
+.box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.form-box form .field {
+    margin-bottom: 15px;
+}
+
+.form-box form .input input {
+    height: 40px;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-box form .input input:focus {
+    border-color: #01579b;
+    outline: none;
+}
+
+.btn {
+    background: #0288d1;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    height: 40px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: #0277bd;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    background: #01579b;
+    transform: translateY(0);
+}
+
+.links {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.links a {
+    color: #0288d1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #0277bd;
+}
+
+.message {
+    background: #ffccbc;
+    border: 1px solid #ff5722;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #d32f2f;
+}
+
