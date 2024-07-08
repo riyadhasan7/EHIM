@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['valid'])) {
+    header("Location: index.php");
+    exit();
+}
+
 include("config.php");
 
 // Initialize variables
@@ -54,57 +60,39 @@ if ($examResult && mysqli_num_rows($examResult) > 0) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="Style.css" rel="stylesheet">
+    <title>Exam Information</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid width_ch">
-        <nav class="navbar bg-body-tertiary border-bottom border-body" data-bs-theme="dark">
+        <nav class="navbar" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <img src="/img/lsbu.png" alt="Bootstrap" width="30" height="24">
+                    <img src="img/modernIcon.png" alt="Lsbu" width="300" height="43">
                 </a>
                 <form class="d-flex" role="search">
-                    <a href="#" class="btn btn-outline-success" type="submit">Logout</a>
+                    <a href="final_info.php" class="btn btn-dark btn-lg btn_ch" type="submit">Add Info</a>
+                    <a href="logout.php" class="btn btn-dark btn-lg btn_ch" type="submit">Logout</a>
                 </form>
             </div>
         </nav>
     </div>
 
-    <marquee class="alert alert-success" direction="left">
-        <strong>Notice: </strong> <span id="marqueeMessage"></span>
-    </marquee>
-    <p id="demo" class="timer"></p>
+    <p id="demo" class="timer timer_ch"></p>
 
-    <div class="container text-center">
-        <div class="row">
-            <div class="col">
-                Column
-            </div>
-            <div class="col-6">
+    <div class="container text-center module_pro">
+        <div class="row "> 
+            <div class="col-3 module_ch column-spacing">
                 <!-- Showing the latest selected procedures -->
                 <?php if ($latestExam): ?>
                     <div class="exam-info">
-                        <h5>Module: <?php echo $latestExam['module']; ?></h5>
+                        <h1>Module: <?php echo $latestExam['module']; ?></h1>
                         <p>Exam Date: <?php echo $latestExam['exam_date']; ?></p>
                         <p>Start Time: <?php echo $startTime; ?></p>
                         <p>End Time: <?php echo $endTime; ?></p>
-                        <p>Selected Procedures:</p>
-                        <ul>
-                            <?php
-                            $selectedProc = $latestExam['selected_proc'];
-                            for ($i = 0; $i < strlen($selectedProc); $i++) {
-                                if ($selectedProc[$i] == '1') {
-                                    echo '<li>' . $procedures[$i]['proc'] . '</li>';
-                                }
-                            }
-                            ?>
-                        </ul>
                     </div>
-                    <hr>
                     <!-- Pass PHP variables to JavaScript -->
                     <script>
                         var examStartTime = "<?php echo $latestExam['exam_date'] . ' ' . date('H:i:s', strtotime($latestExam['start_time'])); ?>";
@@ -114,9 +102,27 @@ if ($examResult && mysqli_num_rows($examResult) > 0) {
                 <?php else: ?>
                     <p>No exam found.</p>
                 <?php endif; ?>
+                <div class="col-12">
+                    <div class="icon_img">
+                        <img src="img/icon.jpg" alt="icon">
+                        <marquee class="alert mar_ch" direction="left">
+                            <span id="marqueeMessage"></span>
+                        </marquee>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                Column
+            <div class="col-8 pro_ch">
+                <h1 class="procedure">Procedures:</h1>
+                <?php
+                $selectedProc = $latestExam['selected_proc'];
+                $cnt = 0;
+                for ($i = 0; $i < strlen($selectedProc); $i++) {
+                    if ($selectedProc[$i] == '1') {
+                        $cnt += 1;
+                        echo '<p class="pro_list">' . ($cnt) . '. ' . $procedures[$i]['proc'] . '</p>';
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>

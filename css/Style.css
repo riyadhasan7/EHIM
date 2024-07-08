@@ -1,17 +1,120 @@
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
   
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .timer {
-    text-align: center;
-    font-size: 60px;
-    margin-top: 0px;
-  }
+}
 
-  .container-fluid.width_ch {
-    padding-right: 0px; 
-    padding-left: 0px;
-  }
+body {background: #b4d7ea;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.timer {
+  text-align: center;
+  font-size: 55px;
+  margin-top: 0px;
+}
+
+.column-spacing {
+  margin-right: 20px; 
+}
+
+.col-3.module_ch {
+  padding: 1rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); 
+  border-radius: 5px; 
+}
+
+.col-8.pro_ch {
+  padding: 1rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.container-fluid.width_ch {
+  background-color: #0982c3;
+  border-bottom: 2px solid #146f93;
+  padding: 5px 5px;
+  box-shadow: 1px 1px #ffffff;
+}
+
+.timer_ch {
+  font-size: 46px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 30px 0px 30px 0px;
+  background: #0288d1;
+  color: #ffffff;
+}
+
+.module_pro {
+  padding: 40px 0px 0px 0px;
+}
+
+.exam-info h1, .pro {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 14px;
+  color: white;
+}
+
+.exam-info p {
+  font-size: 14px;
+  font-weight: 600;
+  /* margin-left: 18px; */
+  color: #fff;
+}
+
+.pro_list {
+  font-weight: 500;
+  padding: 0px 0px;
+  font-size: 0.95rem;
+  text-align: left;
+  /* box-shadow: 0px 5px 10px rgba(2, 18, 83, 0.6); 
+  border-radius: 10px; */
+}
+
+.btn_ch {
+  background: #03537e;
+  border: none;
+  border-radius: 3px;
+  margin: 0px 0px 0px 30px;
+  width: 130px;
+  height: 45px;
+  box-shadow: 0px 5px 10px rgba(42, 10, 154, 0.1);
+}
+
+.mar_ch {
+  font-size: 18px;
+  margin: 14px 0px 2px 0px;
+  font-weight: 700;
+  color: #812323;
+  text-transform: uppercase;
+}
+
+.module_ch {
+  background: #0982c3;
+  padding: 38px 0px 25px 0px;
+  box-shadow: 0px 9px #0288d1;
+}
+
+.pro_ch {
+  background-color: #0982c3;
+  padding: 30px 0px 0px 0px;
+  color: #fff;
+}
+
+.pro_ch p {
+  text-align: left;
+  padding: 0px 0px 0px 40px;
+}
+
+.pro_ch h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.icon_img img {
+  width: 90px;
+  height: 80px;
+  border-radius: 50%;
+}

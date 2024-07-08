@@ -5,6 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
     height: 100vh;
     color: #333;
 }
