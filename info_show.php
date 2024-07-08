@@ -11,6 +11,7 @@ include("config.php");
 $latestExam = null;
 $notAllowedIntervals = [];
 $procedures = [];
+$flag = 0; // Initialize flag variable
 
 // Fetch the latest exam info
 $examQuery = "SELECT * FROM exam_info ORDER BY id DESC LIMIT 1";
@@ -45,6 +46,12 @@ if ($examResult && mysqli_num_rows($examResult) > 0) {
         }
     } else {
         echo "Error fetching not allowed intervals: " . mysqli_error($con);
+    }
+
+    // Set the flag based on your logic
+    // Example logic: if there are any not allowed intervals, set flag to 1
+    if (!empty($notAllowedIntervals)) {
+        $flag = 1;
     }
 
     // Convert start_time and end_time to 12-hour format
@@ -98,13 +105,14 @@ if ($examResult && mysqli_num_rows($examResult) > 0) {
                         var examStartTime = "<?php echo $latestExam['exam_date'] . ' ' . date('H:i:s', strtotime($latestExam['start_time'])); ?>";
                         var examEndTime = "<?php echo $latestExam['exam_date'] . ' ' . date('H:i:s', strtotime($latestExam['end_time'])); ?>";
                         var notAllowedIntervals = <?php echo json_encode($notAllowedIntervals); ?>;
+                        var flag = <?php echo $flag; ?>;
                     </script>
                 <?php else: ?>
                     <p>No exam found.</p>
                 <?php endif; ?>
                 <div class="col-12">
                     <div class="icon_img">
-                        <img src="img/icon.jpg" alt="icon">
+                        <img id="statusIcon" src="img/allowed.png" alt="icon">
                         <marquee class="alert mar_ch" direction="left">
                             <span id="marqueeMessage"></span>
                         </marquee>

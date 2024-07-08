@@ -5,14 +5,17 @@ $(document).ready(function() {
         var endTime = new Date(examEndTime).getTime();
         var message;
         var notAllowedMessage = "You are allowed to go outside.";
-
+        
         for (var i = 0; i < notAllowedIntervals.length; i++) {
             var notAllowedStart = new Date(examStartTime.split(' ')[0] + ' ' + notAllowedIntervals[i].start).getTime();
             var notAllowedEnd = new Date(examStartTime.split(' ')[0] + ' ' + notAllowedIntervals[i].end).getTime();
 
             if (now >= notAllowedStart && now <= notAllowedEnd) {
                 notAllowedMessage = "You are not allowed to go outside.";
+                document.getElementById('statusIcon').src = 'img/notAllowed.jpg';
                 break;
+            } else {
+                document.getElementById('statusIcon').src = 'img/allowed.png';
             }
         }
 
@@ -47,6 +50,6 @@ $(document).ready(function() {
         });
     }
 
+    fetchNotAllowedIntervals(); // Initial call to fetch data
     setInterval(fetchNotAllowedIntervals, 5000); // Fetch intervals every 5 seconds
-    updateTimer(); // Initial call
 });
