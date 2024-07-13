@@ -20,7 +20,11 @@ $(document).ready(function() {
         }
 
         if (now < startTime) {
-            message = "Exam has not started yet.";
+            var timeLeft = startTime - now;
+            var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            message = "Exam will start after: " + hours + "h " + minutes + "m " + seconds + "s ";
         } else if (now > endTime) {
             message = "Exam time is up.";
         } else {
